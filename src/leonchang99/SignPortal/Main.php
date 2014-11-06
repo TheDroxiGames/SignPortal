@@ -36,10 +36,10 @@ class Main extends PluginBase implements Listener{
             if($sign[0]=='[WORLD]'){
                 if(empty($sign[1]) !== true){
                     $mapname = $sign[1];
-                    $event->getPlayer()->sendMessage("[SignPortal] Preparing world '".$mapname."'");
+                    $event->getPlayer()->sendMessage("[DeaxCraft] Preparando '".$mapname."'");
                     //Prevents most crashes
                     if(Server::getInstance()->loadLevel($mapname) != false){
-                        $event->getPlayer()->sendMessage("[SignPortal] Teleporting...");
+                        $event->getPlayer()->sendMessage("[DeaxCraft] Transportado..");
                         $event->getPlayer()->teleport(Server::getInstance()->getLevelByName($mapname)->getSafeSpawn());
                     }else{
                         $event->getPlayer()->sendMessage("[SignPortal] World '".$mapname."' not found.");
@@ -86,7 +86,7 @@ class Main extends PluginBase implements Listener{
                             $event->getPlayer()->sendMessage("[SignPortal] Portal to world '".$sign[1]."' created");
                             return true;
                         }
-                        $event->getPlayer()->sendMessage("[SignPortal] World '".$sign[1]."' does not exist!");
+                        $event->getPlayer()->sendMessage("[DeaxCraft] World '".$sign[1]."' does not exist!");
                         //Server::getInstance()->broadcastMessage("f4");
                         $event->setLine(0,"[BROKEN]");
                         return false;
